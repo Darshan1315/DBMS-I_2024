@@ -114,3 +114,41 @@ ALTER TABLE Room_Detail ALTER COLUMN R_Type nvarchar(50)
 --9--
 
 ALTER TABLE Appointment_Detail  ALTER COLUMN A_Date date
+select *from Patient_Detail
+--10--
+Alter table Patient_Detail Drop column P_MiddleName
+select *from Patient_Detail
+ --11--
+ Alter table Doctor_Detail Drop column D_Gender
+ select *from Doctor_Detail
+ --12--
+ sp_rename 'Transaction_Detail.Tr_B_Amount','Tr_Bill_Amount '	
+  select *from Transaction_Detail
+  --13--
+  select *from Hospital_Detail
+  select *from Room_Detail
+
+  --14--
+  select R_ID, R_Number, R_Availability  from Room_Detail
+
+  --15--
+  select H_Name,H_ContactNo  from Hospital_Detail
+  where H_Type='Private Hospital'
+  --16---
+  select P_FirstName,P_LastName,P_ContactNo,P_Disease,P_City  from Patient_Detail
+  where P_City='Ahmedabad'
+
+  --17--
+  select P_ID,P_FirstName,P_LastName,P_ContactNo,P_City  from Patient_Detail
+  where P_Disease='Tooth Break' 
+  
+  --18--
+select R_ID, R_Number, R_Availability,R_Charge from Room_Detail
+where R_Type='Non-AC'
+
+--19--
+select D_ID,D_Name,D_Salary,D_EmailID,D_ContactNo,D_Address,D_City,H_ID from Doctor_Detail
+where D_Designation='Ortho'
+
+--20--
+Exec sp_rename 'Transaction_Detail','Transaction_Master'
